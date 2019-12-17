@@ -1,1 +1,2 @@
 1st line is added to master
+2nd line is added to b1
