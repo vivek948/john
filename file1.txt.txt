@@ -1,23 +1,17 @@
 pipeline {
 	agent any
 	stages {
-		stage ('build') {
-			...
+		stage ('build') {			
+	input{
+		message "Press Ok to continue"
+		submitter "user1,user2"
+		parameters {
+			string(name:'username', defaultValue: 'user', description: 'Username of the user pressing Ok')
 		}
-		stage ('test: integration-&-quality') {
-			...
-		}
-		stage ('test: functional') {
-			...
-		}
-		stage ('test: load-&-security') {
-			...
-		}
-		stage ('approval') {
-			...
-		}
-		stage ('deploy:prod') {
-			...
+	}
+	steps { 
+		echo "User: ${username} said Ok."
+	}
 		}
 	}
 }
